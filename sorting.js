@@ -249,8 +249,7 @@ async function main() {
 
 
     } else if (selectionOption == 'StalinSort') {
-        let t0 = performance.now();
-        await stalinSort(values);
+        values = stalinSort(values);
         draw(values);
     }
     //alert("Done");
