@@ -14,5 +14,9 @@ If you want to stop sorting at any point, press the red 'cancel' button that wil
 ## Other Information
 Updating the 'use colour', speed or interval settings will not cause the sorting to restart, these changes will take place immediately.
 
-## Image Of The Program
-![Image description](./programImage.png)
+## Images
+**Unsorted**
+![ImageUnsorted](./programImageUnsorted.png)
+**Sorted**
+![ImageSorted](./programImageSorted.png)
+
