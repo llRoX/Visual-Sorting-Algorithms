@@ -11,6 +11,8 @@ If you want to update the amount of values, change the value in the input box an
 To begin sorting, simply click the green 'Sort' button.
 If you want to stop sorting at any point, press the red 'cancel' button that will replace the sort button when you begin sorting.
 
+**Use This Link To Use It** https://thephantomtiger.github.io/Visual-Sorting-Algorithms/
+
 ## Other Information
 Updating the 'use colour', speed or interval settings will not cause the sorting to restart, these changes will take place immediately.
 
