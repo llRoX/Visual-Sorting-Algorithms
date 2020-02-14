@@ -1,0 +1,175 @@
+#canvas-div {
+    width: 100%;
+    height: 60vh;
+    
+    
+}
+
+
+#options-div {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    text-align: center
+}
+
+
+
+.optionsMenuItem {
+    margin-right: 15px;
+    height: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+
+}
+
+
+#speed-div {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    border: 1px solid white;
+    text-align: center;
+}
+#speed-div label
+{
+    margin-right: 10px;
+}
+#completedCheck
+{
+    color: white;
+}
+#speedSettingsTitle
+{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: white;
+    top: -100%;
+    left: 0;
+    transform: translate(0%,30%);
+
+}
+
+
+
+#algo-canvas {
+    border-top: 1px solid white;
+}
+
+#options-div label {
+    text-align: center;
+    color: white;
+}
+
+
+#amountOfValuesArea {
+    position: relative;
+}
+
+#amountOfValues {
+    height: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    
+}
+
+
+
+#delayArea
+{
+    position:relative;
+    
+}
+#delayArea input
+{
+    text-align:center;
+}
+
+
+#sortTypeArea
+{
+    position:relative;
+    height: 100%;
+}
+.inputHeight
+{
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    height: 100%;
+}
+.labelAboveAndMiddle
+{
+    position: absolute;
+    width: 100%;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.interactiveButton
+{
+    position:relative;
+    width: 100px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    background-color:wheat;
+    color: none;
+    border: none;
+}
+
+
+.interactiveButtonOff
+{
+    opacity: 0.6;
+    transition: none !important;
+    transform: none !important;
+}
+
+    
+    
+
+#sort-button
+{
+    background-color: lime;
+}
+
+
+
+.interactiveButton:hover {
+    transform: scale(1.1);
+}
+
+
+
+html,
+body,
+#main {
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(4, 4, 43);
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

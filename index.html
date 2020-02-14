@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="sorting.js" async defer></script>
+
+
+    <script src="" async defer></script>
+
+</head>
+
+<body onresize="resize()" onload=setup()>
+    <div id='main'>
+        <div id='options-div'>
+            <img onclick="stop()" class='optionsMenuItem' src='' id='completedCheck'>
+
+            <li>
+                <label class='optionsMenuItem' for='colour-checkbox'>
+                    <input onclick=updateColourSettings(this) id='colour-checkbox' name='colour-checkbox' checked
+                        type='checkbox'>
+                    Use Colour
+                </label>
+            </li>
+            <div class='optionsMenuItem' id='speed-div'>
+                <h2 id='speedSettingsTitle'>Speed Settings</h2>
+                <label for='Instant'>
+                    <input onclick=updateSpeedSettings(this) type='radio' id='Instant' class='radio-button'
+                        name="detailSpeed" value="Instant">
+                    Complete Instantly
+                </label>
+                <label for='ShowDetails'>
+                    <input onclick=updateSpeedSettings(this) type='radio' id='ShowDetails' name="detailSpeed"
+                        value="ShowDetails" checked>
+                    Show Details
+                </label>
+
+                <label for='ShowMoreDetails'>
+                    <input onclick=updateSpeedSettings(this) type='radio' id='ShowMoreDetails' name="detailSpeed"
+                        value="ShowMoreDetails">
+                    Show More Details
+                </label>
+            </div>
+            <div class='optionsMenuItem' id='delayArea'>
+                <label class='labelAboveAndMiddle' id='delayAreaLabel' for='delay'>Interval (ms)</label>
+                <input onchange="updateDelay(this)" min=1 class='inputHeight' type='number' name='delay' id='delay' value=1>
+            </div>
+            <div class='optionsMenuItem' id='amountOfValuesArea'>
+                <label class='labelAboveAndMiddle' id='amountOfValuesLabel' for='amountOfValues'>Amount Of Values</label>
+                <input class='inputHeight' type='number' name='amountOfValues' id='amountOfValues' min=1 value=400>
+            </div>
+            <div class='optionsMenuItem' id='sortTypeArea'>
+                <label class='labelAboveAndMiddle' for='sort-type'>Sort Type</label>
+                <select class='inputHeight' id='sort-type' name='sort-type'>
+                    <option value='BubbleSort'>BubbleSort</option>
+                    <option value='SelectionSort'>SelectionSort</option>
+                    <option value='QuickSort'>QuickSort</option>
+                    <option value='MergeSort'>MergeSort</option>
+                    <option value='InsertionSort'>InsertionSort</option>
+                    <option value='StalinSort'>StalinSort</option>
+
+                </select>
+            </div>
+            <button class='interactiveButton optionsMenuItem' id='generate-button' onclick=generateButtonFunction()>Generate</button>
+            <button class='interactiveButton optionsMenuItem' id='sort-button' onclick=sortButtonFunction(this)>Sort</button>
+        </div>
+        <div id='canvas-div'>
+            <canvas   id='algo-canvas'></canvas>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
