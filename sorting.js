@@ -22,6 +22,9 @@ function stop()
     console.log("Stop");
 }
 
+//---Setup Functions---//
+
+
 //Function To Setup The Canvas And Set The Settings
 function setup() {
     console.log("setup");
@@ -38,10 +41,21 @@ function setup() {
     useColours = document.getElementById('colour-checkbox').checked;
     updateSpeedSettings();
     draw(values);
-
-    
-
 }
+
+//Constructor For The Block Object
+function block(value) {
+    this.value = value;
+    this.selectedRed = false;
+    this.selectedGreen = false;
+    this.colour;
+}
+
+//---End Setup Functions---//
+
+//---Settings Functions---//
+
+
 function updateDelay(delayElement)
 {
 
@@ -79,17 +93,17 @@ function updateSpeedSettings(radioButtons){
     }
 }
 
-//Function Activated When Clicking The Generate Button.
-//Clears The Value Array, Gets Rid Of The Done Checkmark, And Runs The generateValues() Function.
-function generateButtonFunction() {
-    console.log("geneatad");
-    values = [];
-    stopNow = true;
 
-    document.querySelector('#completedCheck').src = '';
 
-    generateValues(values);
-}
+
+//---End Settings Functions---//
+
+
+
+
+
+
+
 
 //Function To Generate Random Values For The Array
 //Uses UserInput To Find The Amount Of Values, Then Uses The Height Of The Canvas As The Max Value.
@@ -124,23 +138,18 @@ function generateValues(arr) {
 }
 
 
+
+
+
+//---Drawing Functions---//
+
 //Function To Clear The Entire Canvas
 function clear(startPoint = 0, endPoint) {
     console.log(Math.ceil((endPoint) * width));
     ctx.clearRect(0, 0, canvas.width , canvas.height);
-
 }
 
 
-
-
-//Constructor For The Block Object
-function block(value) {
-    this.value = value;
-    this.selectedRed = false;
-    this.selectedGreen = false;
-    this.colour;
-}
 
 
 //Main Drawing Function
@@ -176,12 +185,10 @@ function draw(arr, startPoint = 0, endPoint = arr.length) {
 }
 
 
-//Function To Enable Delay
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+//---End Drawing Functions---//
 
 
+//---Button Functions---//
 
 function sortButtonFunction(button)
 {
@@ -202,6 +209,21 @@ function sortButtonFunction(button)
     }
 }
 
+//Function Activated When Clicking The Generate Button.
+//Clears The Value Array, Gets Rid Of The Done Checkmark, And Runs The generateValues() Function.
+function generateButtonFunction() {
+    console.log("geneatad");
+    values = [];
+    stopNow = true;
+
+    document.querySelector('#completedCheck').src = '';
+
+    generateValues(values);
+}
+
+
+//---End Button Functions---//
+
 //Main Function
 //Run When Clicking The Sort Button
 async function main() {
@@ -218,15 +240,9 @@ async function main() {
     if (selectionOption == 'BubbleSort') {
         let t0 = performance.now();
         let sorted;
-
         //Wait For The Function To Finish, Assign The Result To Sorted, And Log The Result.z`
         await bubbleSort(values);
-        document.querySelector('#completedCheck').src = './resources/tick.png';
         
-        
-
-
-
     } else if (selectionOption == 'SelectionSort') {
         let t0 = performance.now();
 
@@ -265,6 +281,8 @@ async function main() {
 
 }
 
+//---Helper Functions---//
+
 
 //Function To Swap Two Objects In An Array
 function swap(arr, a, b) {
@@ -281,6 +299,12 @@ async function asyncSwap(arr,a,b)
     arr[b] = temp;
 }
 
+//Function To Enable Delay
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+//---End Helper Functions---//
 
 //Bubble Sort
 async function bubbleSort(arr) {
@@ -334,6 +358,9 @@ async function bubbleSort(arr) {
 
 
 }
+
+
+//---Sorting Functions---//
 
 async function selectionSort(arr) {
     for (let i = 0; i < arr.length - 1; i++) {
@@ -400,8 +427,7 @@ async function quickSort(arr, low, high) {
         await Promise.all([quickSort(arr, low, partitionIndex - 1),quickSort(arr, partitionIndex + 1, high)]);
     }
     if(stopNow){return;}
-    //await sleep(delay);
-    //draw(arr);
+    
     
 
 }
@@ -516,3 +542,5 @@ async function merge(leftArray, rightArray)
     .concat(Array.from(rightArray).slice(rightIndex));
     
 }
+
+//---End Sorting Functions---//
