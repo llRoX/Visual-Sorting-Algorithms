@@ -1,6 +1,6 @@
 #canvas-div {
     width: 100%;
-    height: 60vh;
+    height: 40rem;
     
     
 }
@@ -8,11 +8,13 @@
 
 #options-div {
     width: 100%;
-    height: 40px;
+    height: 20rem;
+    
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: end;
+    justify-content: center;
     margin-bottom: 5px;
     text-align: center
 }
@@ -21,16 +23,32 @@
 
 .optionsMenuItem {
     margin-right: 15px;
-    height: 100%;
+    height: 3rem;
+    min-height: 3rem;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
 
 }
 
-
-#speed-div {
+#options-div li
+{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#options-div li label
+{
+    width: 100%;
+    height: auto;
+
+}
+#speed-div {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
     flex-direction: row;
     align-items: center;
@@ -54,10 +72,13 @@
     margin: 0;
     padding: 0;
     color: white;
-    top: -100%;
+    top: -1rem;
     left: 0;
-    transform: translate(0%,30%);
-
+    transform: translate(0%,-50%);
+    -webkit-transform: translate(0%,-50%);
+    -moz-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+    -o-transform: translate(0%,-50%);
 }
 
 
@@ -100,7 +121,7 @@
 #sortTypeArea
 {
     position:relative;
-    height: 100%;
+    height: 3rem;
 }
 .inputHeight
 {
@@ -113,15 +134,19 @@
 {
     position: absolute;
     width: 100%;
-    top: -50%;
+    top: -1.2rem;
     left: 50%;
     transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
 }
 
 .interactiveButton
 {
     position:relative;
-    width: 100px;
+    width: 8rem;
     border-radius: 8px;
     transition: transform 0.3s;
     background-color:wheat;
@@ -172,4 +197,17 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+
+@media only screen and (max-width: 1100px)
+{
+    #options-div
+    {
+        height: 100%;
+    }
+    .optionsMenuItem
+    {
+        margin-bottom: 1rem;
+    }
 }
