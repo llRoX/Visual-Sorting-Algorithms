@@ -22,6 +22,18 @@ function stop()
     console.log("Stop");
 }
 
+
+const sort_types = {
+    BubbleSort : "BubbleSort",
+    SelectionSort : "SelectionSort",
+    InsertionSort : "InsertionSort",
+    QuickSort : "QuickSort",
+    MergeSort : "MergeSort",
+    StalinSort : "StalinSort" 
+}
+
+Object.freeze(sort_types);
+
 //---Setup Functions---//
 
 
@@ -237,37 +249,39 @@ async function main() {
     stopNow = false;
     let selectionOption = document.getElementById('sort-type').value;
     console.log(selectionOption);
-    if (selectionOption == 'BubbleSort') {
-        let t0 = performance.now();
-        let sorted;
-        //Wait For The Function To Finish, Assign The Result To Sorted, And Log The Result.z`
-        await bubbleSort(values);
-        
-    } else if (selectionOption == 'SelectionSort') {
-        let t0 = performance.now();
 
-        await selectionSort(values);
-        console.log(performance.now() - t0);
-    } else if (selectionOption == 'QuickSort') {
-        let t0 = performance.now();
-        
-        await quickSort(values, 0, values.length - 1);
-        draw(values);
-    } else if (selectionOption == 'MergeSort') {
-        let hello = await mergeSort(values, 0, values.length - 1);
-        console.log('hello');
-        draw(hello);
-    } else if (selectionOption == 'InsertionSort') {
-        let t0 = performance.now();
+    switch(selectionOption){
+        case sort_types.BubbleSort:
+            let sorted;
+            //Wait For The Function To Finish, Assign The Result To Sorted, And Log The Result.z`
+            await bubbleSort(values);
+            break;
+        case sort_types.SelectionSort:
+            await selectionSort(values);
+            break;
+        case sort_types.QuickSort:
+            await quickSort(values, 0, values.length - 1);
+            draw(values);
+            break;
+        case sort_types.MergeSort:
+            const result = await mergeSort(values, 0, values.length - 1);
+            draw(result);
+            break;
+        case sort_types.InsertionSort:
+            await insertionSort(values);
+            break;
+        case sort_types.StalinSort:
+            values = stalinSort(values);
+            draw(values);
+            break;
+        default:
+            break; 
 
-        await insertionSort(values);
-        console.log(performance.now() - t0);
 
-
-    } else if (selectionOption == 'StalinSort') {
-        values = stalinSort(values);
-        draw(values);
     }
+
+
+
     //alert("Done");
     document.querySelector("#sort-button").innerHTML = "Sort";
     document.querySelector("#sort-button").style.background = "lime";
