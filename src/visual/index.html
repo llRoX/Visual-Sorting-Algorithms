@@ -12,22 +12,22 @@
     <title>Sorting Algorithm Visualizer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <script src="sorting.js" async defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="test.js" type="module" async defer></script>
 
 
     <script src="" async defer></script>
 
 </head>
 
-<body onresize="resize()" onload=setup()>
+<body >
     <div id='main'>
         <div id='options-div'>
-            <img onclick="stop()" class='optionsMenuItem' src='' id='completedCheck'>
+            <img  class='optionsMenuItem' src='' id='completedCheck'>
 
             <li class='optionsMenuItem'>
                 <label  for='colour-checkbox'>
-                    <input onclick=updateColourSettings(this) id='colour-checkbox' name='colour-checkbox' checked
+                    <input  id='colour-checkbox' name='colour-checkbox' checked
                         type='checkbox'>
                     Use Colour
                 </label>
@@ -35,25 +35,25 @@
             <div class='optionsMenuItem' id='speed-div'>
                 <h2 id='speedSettingsTitle'>Speed Settings</h2>
                 <label for='Instant'>
-                    <input onclick=updateSpeedSettings(this) type='radio' id='Instant' class='radio-button'
+                    <input  type='radio' id='Instant' class='radio-button'
                         name="detailSpeed" value="Instant">
                     Complete Instantly
                 </label>
                 <label for='ShowDetails'>
-                    <input onclick=updateSpeedSettings(this) type='radio' id='ShowDetails' name="detailSpeed"
+                    <input  type='radio' id='ShowDetails' name="detailSpeed"
                         value="ShowDetails" checked>
                     Show Details
                 </label>
 
                 <label for='ShowMoreDetails'>
-                    <input onclick=updateSpeedSettings(this) type='radio' id='ShowMoreDetails' name="detailSpeed"
+                    <input  type='radio' id='ShowMoreDetails' name="detailSpeed"
                         value="ShowMoreDetails">
                     Show More Details
                 </label>
             </div>
             <div class='optionsMenuItem' id='delayArea'>
                 <label class='labelAboveAndMiddle' id='delayAreaLabel' for='delay'>Interval (ms)</label>
-                <input onchange="updateDelay(this)" min=1 class='inputHeight' type='number' name='delay' id='delay' value=1>
+                <input " min=1 class='inputHeight' type='number' name='delay' id='delay' value=1>
             </div>
             <div class='optionsMenuItem' id='amountOfValuesArea'>
                 <label class='labelAboveAndMiddle' id='amountOfValuesLabel' for='amountOfValues'>Amount Of Values</label>
@@ -71,8 +71,8 @@
 
                 </select>
             </div>
-            <button class='interactiveButton optionsMenuItem' id='generate-button' onclick=generateButtonFunction()>Generate</button>
-            <button class='interactiveButton optionsMenuItem' id='sort-button' onclick=sortButtonFunction(this)>Sort</button>
+            <button class='interactiveButton optionsMenuItem' id='generate-button' >Generate</button>
+            <button class='interactiveButton optionsMenuItem' id='sort-button' >Sort</button>
         </div>
         <div id='canvas-div'>
             <canvas   id='algo-canvas'></canvas>

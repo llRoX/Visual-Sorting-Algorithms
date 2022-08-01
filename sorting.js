@@ -40,7 +40,7 @@ Object.freeze(sort_types);
 //Function To Setup The Canvas And Set The Settings
 function setup() {
     console.log("setup");
-    canvas.height = document.querySelector('#canvas-div').clientHeight - 5;
+    canvas.height = document.querySelector('#canvas-div').clientHeight;
     canvas.width = document.querySelector('#canvas-div').clientWidth;
     width = canvas.width / amountOfValues;
 
@@ -56,7 +56,7 @@ function setup() {
 }
 
 //Constructor For The Block Object
-function block(value) {
+function Block(value) {
     this.value = value;
     this.selectedRed = false;
     this.selectedGreen = false;
@@ -133,7 +133,7 @@ function generateValues(arr) {
     //valueMax denotes the maximum value of any block;
     for (let i = 0; i < amountOfValues; i++) {
         let height = Math.floor(Math.random() * valueMax + 1);
-        let newBlock = new block(height)
+        let newBlock = new Block(height)
 
 
         //Generate A Colour For The Block Based On Value
@@ -245,7 +245,6 @@ async function main() {
 
 
 
-    document.querySelector('#completedCheck').src = './resources/810.gif';
     stopNow = false;
     let selectionOption = document.getElementById('sort-type').value;
     console.log(selectionOption);
@@ -286,7 +285,6 @@ async function main() {
     document.querySelector("#sort-button").innerHTML = "Sort";
     document.querySelector("#sort-button").style.background = "lime";
 
-    document.querySelector('#completedCheck').src = './resources/tick.png';
     generateButton.onclick=generateButtonFunction;
     
     generateButton.classList.remove("interactiveButtonOff");
@@ -298,12 +296,7 @@ async function main() {
 //---Helper Functions---//
 
 
-//Function To Swap Two Objects In An Array
-function swap(arr, a, b) {
-    let temp = arr[a];
-    arr[a] = arr[b];
-    arr[b] = temp;
-}
+
 
 //Async Swap Function So That It Works With Async Quicksort.
 async function asyncSwap(arr,a,b)
@@ -376,52 +369,7 @@ async function bubbleSort(arr) {
 
 //---Sorting Functions---//
 
-async function selectionSort(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
 
-        let min = i;
-        arr[i].selectedRed = true;
-
-        if (showEachSendToEnd && !showEachSwap) {
-            await sleep(delay)
-            draw(arr);
-        }
-
-        for (let j = i + 1; j < arr.length; j++) {
-            if(stopNow){console.log("stop");return;}
-
-            
-            arr[j].selectedRed = true;
-
-            if (arr[j].value < arr[min].value) {
-                arr[min].selectedGreen = false;
-                min = j;
-                arr[min].selectedGreen = true;
-            }
-
-
-
-            if (showEachSwap) {
-                await sleep(delay);
-                draw(arr);
-            }
-            arr[j].selectedRed = false;       
-
-
-        }
-        arr[i].selectedRed = false;
-        arr[min].selectedGreen = false;
-        swap(arr, i, min);
-
-        
-
-
-    }
-    console.log(arr);
-    draw(arr);
-    return arr;
-
-}
 
 
 async function quickSort(arr, low, high) {
