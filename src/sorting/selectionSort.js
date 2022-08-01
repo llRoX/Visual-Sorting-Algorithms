@@ -20,9 +20,7 @@ function selectionSort(arr) {
             }
 
         }
-        console.log(arr.arr);
         arr.swap(i, indexOfMin);
-
         
     }
 }
