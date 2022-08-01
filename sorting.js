@@ -188,37 +188,7 @@ async function partition(arr, low, high) {
     return indexOfSmaller + 1;
 }
 
-async function insertionSort(arr) {
-    let index, key, j;
-    for (index = 1; index < arr.length; index++) {
-        key = arr[index];
-        j = index - 1;
 
-        //arr[index].selectedRed = true;
-
-        if (showEachSendToEnd) {
-            await sleep(delay);
-            draw(arr);
-        } 
-        arr[index].selectedRed = false;
-
-
-
-        while (j >= 0 && arr[j].value > key.value) {
-            arr[j + 1] = arr[j];
-            arr[j].selectedRed = true;
-            if (showEachSwap) {
-                await sleep(delay);
-                draw(arr);
-            }
-            arr[j].selectedRed = false;
-            j--;
-            if(stopNow){return};
-        }
-        arr[j + 1] = key;
-    }
-    draw(arr);
-}
 
 function stalinSort(arr) {
     let sortedArr = [];

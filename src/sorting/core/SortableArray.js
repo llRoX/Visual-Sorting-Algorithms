@@ -36,6 +36,10 @@ function SortableArray(length, isInt){
         this.arr[indexB] = temp;
     }
 
+    this.get = (index) =>{
+        return this.arr[index];
+    }
+
 }
 
 
