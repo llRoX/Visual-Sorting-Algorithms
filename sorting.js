@@ -140,53 +140,6 @@ function draw(arr, startPoint = 0, endPoint = arr.length) {
 
 
 
-async function quickSort(arr, low, high) {
-    
-    if(stopNow){return;}
-
-    if (low < high) {
-        let partitionIndex = await partition(arr, low, high);
-        arr[low].selectedRed = true;
-        if (showEachSendToEnd) {
-            await sleep(delay);
-            draw(arr);
-        }
-        arr[partitionIndex].selectedGreen = false;
-        arr[low].selectedRed = false;
-
-        await Promise.all([quickSort(arr, low, partitionIndex - 1),quickSort(arr, partitionIndex + 1, high)]);
-    }
-    if(stopNow){return;}
-    
-    
-
-}
-async function partition(arr, low, high) {
-    if(stopNow){return;}
-
-    let pivotPoint = arr[high].value;
-    let indexOfSmaller = low - 1;
-    arr[high].selectedGreen = true;
-
-    for (let i = low; i < high; i++) {
-        if (arr[i].value < pivotPoint) {
-            indexOfSmaller++;
-            await asyncSwap(arr, indexOfSmaller, i);
-            if(showEachSwap){
-                await sleep(delay);
-                draw(arr);
-            }
-                       
-            
-        }
-    }
-
-    arr[high].selectedGreen = false;
-
-    
-    await asyncSwap(arr, indexOfSmaller + 1, high);
-    return indexOfSmaller + 1;
-}
 
 
 
@@ -199,48 +152,5 @@ function stalinSort(arr) {
     return sortedArr;
 }
 
-async function mergeSort(arr)
-{
-    if(arr.length <= 1)
-    {
-        return arr;
-    }
-
-    let middleIndex = Math.floor(arr.length / 2);
-    if(showEachSendToEnd)
-        {
-            await sleep(delay);
-            draw(arr);
-        }
-    let leftArray = arr.slice(0,middleIndex);
-    let rightArray = arr.slice(middleIndex);
-    return merge(await mergeSort(leftArray),await mergeSort(rightArray));
-    
-
-}
-
-async function merge(leftArray, rightArray)
-{
-    let resultArray = [], leftIndex = 0, rightIndex = 0;
-
-    while(leftIndex < leftArray.length && rightIndex < rightArray.length)
-    {
-        if(leftArray[leftIndex].value < rightArray[rightIndex].value)
-        {
-            resultArray.push(leftArray[leftIndex]);
-            leftIndex++;
-        }
-        else
-        {
-            resultArray.push(rightArray[rightIndex]);
-            rightIndex++;
-        }
-        
-        
-    }
-    return resultArray.concat(Array.from(leftArray).slice(leftIndex))
-    .concat(Array.from(rightArray).slice(rightIndex));
-    
-}
 
 //---End Sorting Functions---//
