@@ -2,19 +2,13 @@ import selectionSort from "../sorting/selectionSort.js"
 import SortableArray from "../sorting/core/SortableArray.js";
 import bubbleSort from "../sorting/bubbleSort.js";
 import insertionSort from "../sorting/insertionSort.js";
-const rand = new SortableArray(10, true);
+import quickSort from "../sorting/quickSort.js";
+
+const rand = new SortableArray(100000, true);
 rand.initRandom(0, 10);
 
 
 
-bubbleSort(rand);
-console.log(rand);
 
-rand.initRandom(0, 100);
-selectionSort(rand);
-console.log(rand);
-
-
-rand.initRandom(0, 100);
-insertionSort(rand);
+quickSort(rand);
 console.log(rand);
