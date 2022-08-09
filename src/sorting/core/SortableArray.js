@@ -40,6 +40,10 @@ function SortableArray(length, isInt){
         return this.arr[index];
     }
 
+    this.set = (index, value) => {
+        this.arr[index] = value;
+    }
+
 }
 
 
