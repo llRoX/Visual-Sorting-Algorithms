@@ -30,4 +30,6 @@ html, body, #main {
 
 #options-div{
     height: 150px;
+    border-bottom: 1px solid gray;
+    background-color: rgb(203, 203, 203);
 }
