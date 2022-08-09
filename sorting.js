@@ -16,20 +16,19 @@ var showEachSendToEnd = true;
 
 var stopNow = false;
 
-function stop()
-{
+function stop() {
     stopNow = true;
     console.log("Stop");
 }
 
 
 const sort_types = {
-    BubbleSort : "BubbleSort",
-    SelectionSort : "SelectionSort",
-    InsertionSort : "InsertionSort",
-    QuickSort : "QuickSort",
-    MergeSort : "MergeSort",
-    StalinSort : "StalinSort" 
+    BubbleSort: "BubbleSort",
+    SelectionSort: "SelectionSort",
+    InsertionSort: "InsertionSort",
+    QuickSort: "QuickSort",
+    MergeSort: "MergeSort",
+    StalinSort: "StalinSort"
 }
 
 Object.freeze(sort_types);
@@ -45,12 +44,12 @@ Object.freeze(sort_types);
 //Also Assigns A Colour To Each Value So That It Doesn't Need To Be Recalculated Each Draw Call.
 function generateValues(arr) {
     //Clear Values Array
-    
+
     amountOfValues = parseInt(document.getElementById('amountOfValues').value);
 
     //Add One To The Amount Of Values To Ensure All Values Fit On Canvas
     width = canvas.width / (amountOfValues + 1);
-    
+
     //Generate New Values
     //amountOfValues denotes the amount of values to generate
     //valueMax denotes the maximum value of any block;
@@ -81,7 +80,7 @@ function generateValues(arr) {
 //Function To Clear The Entire Canvas
 function clear(startPoint = 0, endPoint) {
     console.log(Math.ceil((endPoint) * width));
-    ctx.clearRect(0, 0, canvas.width , canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 
@@ -90,8 +89,8 @@ function clear(startPoint = 0, endPoint) {
 //Main Drawing Function
 function draw(arr, startPoint = 0, endPoint = arr.length) {
     clear(startPoint, endPoint);
-    
-    for (let i = startPoint ; i < endPoint; i++) {
+
+    for (let i = startPoint; i < endPoint; i++) {
 
         if (arr[i].selectedRed) {
             ctx.fillStyle = 'red';
@@ -105,7 +104,7 @@ function draw(arr, startPoint = 0, endPoint = arr.length) {
         ctx.beginPath();
         //Draw Rectangles Based On Position In Array
         ctx.rect(10 + (width * i), canvas.height - arr[i].value, width, arr[i].value);
-        if(amountOfValues < 101){
+        if (amountOfValues < 101) {
             ctx.stroke();
 
         }
@@ -120,37 +119,3 @@ function draw(arr, startPoint = 0, endPoint = arr.length) {
 }
 
 
-//---End Drawing Functions---//
-
-
-//---Button Functions---//
-
-
-
-
-
-
-//---End Helper Functions---//
-
-
-
-
-//---Sorting Functions---//
-
-
-
-
-
-
-
-function stalinSort(arr) {
-    let sortedArr = [];
-    let bigger = 0;
-    //For each element, if element bigger than the largest found value, push it into the sorted array.
-    arr.forEach(element => element.value >= bigger ? (bigger = element.value, sortedArr.push(element)) : 0);
-    draw(sortedArr);
-    return sortedArr;
-}
-
-
-//---End Sorting Functions---//
