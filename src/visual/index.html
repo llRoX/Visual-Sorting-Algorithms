@@ -23,7 +23,7 @@
 <body>
     <div id='main'>
         <div id='options-div'>
-            <img class='optionsMenuItem' src='' id='completedCheck'>
+            <img class='optionsMenuItem' id='completedCheck'>
 
             <li class='optionsMenuItem'>
                 <label for='colour-checkbox'>
@@ -31,29 +31,11 @@
                     Use Colour
                 </label>
             </li>
-            <div class='optionsMenuItem' id='speed-div'>
-                <h2 id='speedSettingsTitle'>Speed Settings</h2>
-                <label for='Instant'>
-                    <input type='radio' id='Instant' class='radio-button' name="detailSpeed" value="Instant">
-                    Complete Instantly
-                </label>
-                <label for='ShowDetails'>
-                    <input type='radio' id='ShowDetails' name="detailSpeed" value="ShowDetails" checked>
-                    Show Details
-                </label>
 
-                <label for='ShowMoreDetails'>
-                    <input type='radio' id='ShowMoreDetails' name="detailSpeed" value="ShowMoreDetails">
-                    Show More Details
-                </label>
-            </div>
-            <div class='optionsMenuItem' id='delayArea'>
-                <label class='labelAboveAndMiddle' id='delayAreaLabel' for='delay'>Interval (ms)</label>
-                <input " min=1 class='inputHeight' type='number' name='delay' id='delay' value=1>
-            </div>
             <div class='optionsMenuItem' id='amountOfValuesArea'>
-                <label class='labelAboveAndMiddle' id='amountOfValuesLabel' for='amountOfValues'>Amount Of Values</label>
-                <input class='inputHeight' type='number' name='amountOfValues' id='amountOfValues' min=1 value=400>
+                <label class='labelAboveAndMiddle' id='amountOfValuesLabel' for='amountOfValues'>Amount Of
+                    Values</label>
+                <input class='inputHeight' type='number' name='amountOfValues' id='amount-of-values' min=1 value=400>
             </div>
             <div class='optionsMenuItem' id='sortTypeArea'>
                 <label class='labelAboveAndMiddle' for='sort-type'>Sort Type</label>
@@ -67,11 +49,11 @@
 
                 </select>
             </div>
-            <button class='interactiveButton optionsMenuItem' id='generate-button' >Generate</button>
-            <button class='interactiveButton optionsMenuItem' id='sort-button' >Sort</button>
+            <button class='interactiveButton optionsMenuItem' id='generate-button'>Generate</button>
+            <button class='interactiveButton optionsMenuItem' id='run-button'>Sort</button>
         </div>
         <div id='canvas-div'>
-            <canvas   id='algo-canvas'></canvas>
+            <canvas id='algo-canvas'></canvas>
         </div>
     </div>
 
